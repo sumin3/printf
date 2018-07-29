@@ -15,11 +15,12 @@ char *(get_sp(char *s))(va_list list)
 	sp_t sps[] = {
 		{"c", get_char},
 		{"s", get_string}
+		{"%", get_percent}
 	};
 	int i;
 
 	i = 0;
-	while (i < 2)
+	while (i < 3)
 	{
 		if (*s == *sps[i].sp)
 		{
