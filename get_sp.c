@@ -14,7 +14,7 @@ char *(get_sp(char *s))(va_list list)
 {
 	sp_t sps[] = {
 		{"c", get_char},
-		{"s", get_string}
+		{"s", get_string},
 		{"%", get_percent}
 	};
 	int i;
