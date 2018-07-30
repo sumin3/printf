@@ -11,14 +11,14 @@
 typedef struct sp
 {
 	char sp;
-	void (*f)(va_list list);
+	char *(*f)(va_list list, char *buffer, int *index);
 } sp_t;
 
 int _printf(const char *format, ...);
-char *(*get_sp(char c))(va_list list, char *buffer, int index);
-char *get_char(va_list list, char *buffer, int index);
-char *get_string(va_list list, char *buffer, int index);
-char *get_percent(va_list list, char *buffer, int index);
+char *(*get_sp(char c))(va_list list, char *buffer, int *index);
+char *get_char(va_list list, char *buffer, int *index);
+char *get_string(va_list list, char *buffer, int *index);
+char *get_percent(va_list list, char *buffer, int *index);
 int _putchar(char c);
 
 #endif

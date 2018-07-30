@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <unistd.h>
 
 /**
  * get_sp - selects the correct specifier function
@@ -10,7 +11,7 @@
  * Return: buffer
  */
 
-char *(*get_sp(char c))(va_list list, char *buffer, int index)
+char *(*get_sp(char c))(va_list list, char *buffer, int *index)
 {
 	sp_t sps[] = {
 		{'c', get_char},
