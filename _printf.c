@@ -16,9 +16,9 @@ int _printf(const char *format, ...)
 	int i = 0; /* counter */
 	int *index = NULL;
 	int index1 = 0;
-	char *buffer;
+	char *buffer = NULL;
 	int len = 0;
-	char *m;
+	char *m = NULL;
 	int error = 0;
 
 	index = &index1;
@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 	/* initialize va list */
 	va_start(list, format);
 	/* malloc space for buffer */
-	buffer = malloc(BUFFER_SIZE);
+	buffer = calloc(BUFFER_SIZE, sizeof(char));
 	if (buffer == NULL)
 		return (-1);
 	/* loop the string format until reach '\0' */
