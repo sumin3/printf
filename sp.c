@@ -98,6 +98,8 @@ char *get_string(va_list list, char *buffer, int *index)
 	int i = 0;
 
 	tmp = va_arg(list, char*);
+	if (tmp == NULL)
+		tmp = "(null)";
 	while (tmp[i] != '\0')
 	{
 		buffer[*index] = tmp[i];
