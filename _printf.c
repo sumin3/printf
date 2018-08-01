@@ -75,7 +75,7 @@ int _printf(const char *format, ...)
 	write(1, buffer, *index);
 	free(buffer);
 	if (negative1 == 1)
-		len = -1;
+		*index = -1;
 	va_end(list);
 	return (*index);
 }
