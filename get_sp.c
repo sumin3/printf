@@ -6,24 +6,26 @@
 
 /**
  * get_sp - selects the correct specifier function
- * @s: specifier that need check
- *
+ * @c: specifier that need check
  * Return: buffer
  */
 
 char *(*get_sp(char c))(va_list list, char *buffer, int *index)
 {
+	/* declare structure array called sps */
+	/* 1st column is specifier. 2nd column is the corresponding function */
 	sp_t sps[] = {
 		{'c', get_char},
 		{'s', get_string},
-		{'%', get_percent}
-	}; /* declare structure array called sps */
-	/* 1st column is specifier. 2nd column is the corresponding function */
+		{'%', get_percent},
+		{'d', get_int},
+		{'i', get_int}
+	};
 	int i; /* counter */
 	int n; /* number of structures */
 
 	i = 0;
-	n = 3;
+	n = 5;
 	/* loop n time to compare c with 1st column of structure array*/
 	while (i < n)
 	{
@@ -34,7 +36,6 @@ char *(*get_sp(char c))(va_list list, char *buffer, int *index)
 		}
 		i++;
 	}
-	/* if not match, exit with error message */
-	write(2,"Error\n", 7);
-	exit(99);
+	/* if not match, return not match function */
+	return (not_match);
 }
