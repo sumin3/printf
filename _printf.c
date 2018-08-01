@@ -72,7 +72,7 @@ int _printf(const char *format, ...)
 		len++;
 	/* put a '\0' character at the end of the string */
 	buffer[*index] = '\0';
-	write(1, buffer, len);
+	write(1, buffer, *index);
 	free(buffer);
 	if (negative1 == 1)
 		len = -1;
