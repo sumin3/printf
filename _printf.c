@@ -50,7 +50,7 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == '\0' && error == 0)
 			{
 				negative1 = 1;
-				i++;
+				(*index)--;
 			}
 			else if (format[i + 1] == '\0' && not_match == 0)
 			{
@@ -77,5 +77,5 @@ int _printf(const char *format, ...)
 	if (negative1 == 1)
 		len = -1;
 	va_end(list);
-	return (len);
+	return (*index);
 }
