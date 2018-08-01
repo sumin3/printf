@@ -16,18 +16,19 @@ int _printf(const char *format, ...)
 	int i = 0; /* counter */
 	int *index = NULL;
 	int index1 = 0;
-	char *buffer;
+	char *buffer = NULL;
 	int len = 0;
-	char *m;
+	char *m = NULL;
 	int error = 0;
+	int not_match = 0;
+	int negative1 = 0;
 
 	index = &index1;
 	if (format == NULL)
 		return (-1);
-	/* initialize va list */
 	va_start(list, format);
 	/* malloc space for buffer */
-	buffer = malloc(BUFFER_SIZE);
+	buffer = calloc(BUFFER_SIZE, sizeof(char));
 	if (buffer == NULL)
 		return (-1);
 	/* loop the string format until reach '\0' */
@@ -42,24 +43,26 @@ int _printf(const char *format, ...)
 				m = get_sp(format[i + 1])(list, buffer, index);
 				error = 1;
 				if (m == NULL)
-					error = 2;
+					not_match = 1;
 				else
 					i++;
 			}
-			if (format[i + 1] == '\0' && error == 0)
+			else if (format[i + 1] == '\0' && error == 0)
 			{
-				error = 3;
+				negative1 = 1;
 				i++;
 			}
-			if (format[i + 1] == '\0' && error == 1)
-				error = 3;
+			else if (format[i + 1] == '\0' && not_match == 0)
+			{
+				negative1 = 1;
+			}
 		}
 		else
 		{
 			/* if % not found, just put character to buffer */
 			buffer[*index] = format[i];
 		}
-		if (error == 2)
+		if (not_match == 1)
 			buffer[*index] = format[i];
 		if (format[i] != '\0')
 			i++;
@@ -71,7 +74,7 @@ int _printf(const char *format, ...)
 	buffer[*index] = '\0';
 	write(1, buffer, len);
 	free(buffer);
-	if (error == 3)
+	if (negative1 == 1)
 		len = -1;
 	va_end(list);
 	return (len);
