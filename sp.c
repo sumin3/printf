@@ -30,7 +30,7 @@ char *get_int(va_list list, int *char_count)
 	string = malloc(sizeof(char) * len + 1);
 		if (string == NULL)
 			return (NULL);
-	string[len + 1] = '\0';
+	string[len] = '\0';
 	/* loop until num has only 1 digit by dividing num by 10 in each loop*/
 	while (num <= -10 || num >= 10)
 	{
