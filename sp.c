@@ -11,9 +11,7 @@
  */
 char *get_int(va_list list, int *char_count)
 {
-	int num, num_tmp; /* number from argument */
-	int len = 1; /* length of number */
-	int last_digit;
+	int num, num_tmp, len = 1, last_digit;
 	char *string = NULL;
 
 	num = va_arg(list, int);
@@ -32,7 +30,6 @@ char *get_int(va_list list, int *char_count)
 	string = malloc(sizeof(char) * len + 1);
 		if (string == NULL)
 			return (NULL);
-
 	string[len + 1] = '\0';
 	/* loop until num has only 1 digit by dividing num by 10 in each loop*/
 	while (num <= -10 || num >= 10)
@@ -47,7 +44,6 @@ char *get_int(va_list list, int *char_count)
 	/* for num is (-9) to (-1) */
 	if (num < 0)
 	{
-		/* put the negative sign, and follow by num to string */
 		string[0] = '-';
 		string[1] = -num + '0';
 	}
