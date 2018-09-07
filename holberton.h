@@ -17,11 +17,13 @@ typedef struct sp
 	char sp;
 	char *(*f)(va_list list, int *char_count);
 } sp_t;
-char *percent_helper(const char *format, va_list list, int *char_count, int *status,
-                   char *tmp_buff, int *find_percent, int *match, int *current_idx);
+char *percent_helper(const char *format, va_list list, int *char_count,
+		     int *status, char *tmp_buff, int *find_percent,
+		     int *match, int *current_idx);
 int write_buff(int *count, int *char_count, char *tmp_buff);
 int _printf(const char *format, ...);
-char *copy_literal(const char *format, int *char_count, int *current_idx, int *literal_beg);
+char *copy_literal(const char *format, int *char_count, int *current_idx,
+		   int *literal_beg);
 char *(*get_sp(char c))(va_list list, int *char_count);
 char *get_char(va_list list, int *char_count);
 char *get_string(va_list list, int *char_count);
