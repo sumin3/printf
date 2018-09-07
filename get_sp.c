@@ -10,7 +10,7 @@
  * Return: buffer
  */
 
-char *(*get_sp(char c))(va_list list, char *buffer, int *index)
+char *(*get_sp(char c))(va_list list)
 {
 	/* declare structure array called sps */
 	/* 1st column is specifier. 2nd column is the corresponding function */
