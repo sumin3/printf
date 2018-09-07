@@ -19,7 +19,7 @@ int _printf(const char *format, ...)
 	char *tmp_buffer = NULL;
 	int find_percent = 0, find = 0;
 	int not_match = 0;
-	int status = 0, tmp_len = 0;
+	int status = 0;
 	int char_count = 0;
 
 
