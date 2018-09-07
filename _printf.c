@@ -114,8 +114,6 @@ int _printf(const char *format, ...)
 		if (format[current_idx] != '\0' && find == 0)
 			current_idx++;
 	}
-
-/* put a '\0' character at the end of the string */
 	if (status == 1)
 		count = -1;
 	va_end(list);
