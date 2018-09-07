@@ -6,9 +6,10 @@
 /**
  * get_int - convert integer to string
  * @list: the character to add to string
+ * @char_count: number of character that stores in buffer.
  * Return: string
  */
-char *get_int(va_list list)
+char *get_int(va_list list, int *char_count)
 {
 	int num, num_tmp; /* number from argument */
 	int len = 1; /* length of number */
@@ -27,6 +28,7 @@ char *get_int(va_list list)
 		num_tmp = num_tmp / 10;
 		len++;
 	}
+	*char_count = len;
 	string = malloc(sizeof(char) * len + 1);
 		if (string == NULL)
 			return (NULL);
@@ -58,19 +60,22 @@ char *get_int(va_list list)
 /**
  * not_match - return null
  * @list: not use variable
+ * @char_count: number of character that stores in buffer.
  * Return: null
  */
-char *not_match(__attribute__((unused))va_list list)
+char *not_match(__attribute__((unused))va_list list, int *char_count)
 {
 	return (NULL);
+	(void) char_count;
 }
 
 /**
  * get_char - put/add character in buffer
+ * @char_count: number of character that stores in buffer.
  * @list: the character to add to buffer
  * Return: buffer
  */
-char *get_char(va_list list)
+char *get_char(va_list list, int *char_count)
 {
 	char *buffer;
 
@@ -80,16 +85,18 @@ char *get_char(va_list list)
 	buffer[0] = va_arg(list, int);
 	/* put '\0' at the end of string */
 	buffer[1] = '\0';
+	*char_count = 1;
 	return (buffer);
 }
 
 /**
  * get_string - put/add string in buffer
+ * @char_count: number of character that stores in buffer.
  * @list: the string to add to buffer
  *
  * Return: buffer
  */
-char *get_string(va_list list)
+char *get_string(va_list list, int *char_count)
 {
 	char *tmp = NULL;
 	char *buffer = NULL;
@@ -100,7 +107,7 @@ char *get_string(va_list list)
 	if (tmp == NULL)
 		tmp = "(null)";
 	len = _strlen(tmp);
-	buffer = malloc(sizeof(char) * len);
+	buffer = malloc(sizeof(char) * len + 1);
 		if (buffer == NULL)
 			return (NULL);
 	/* copy string to buffer */
@@ -110,16 +117,18 @@ char *get_string(va_list list)
 		i++;
 	}
 	/* put '\0' at the end of string */
+	*char_count = len;
 	buffer[i] = '\0';
 	return (buffer);
 }
 
 /**
  * get_percent - put/add percent in buffer
+ * @char_count: number of character that stores in buffer.
  * @list: the percent to add to buffer
  * Return: buffer
  */
-char *get_percent(__attribute__((unused))va_list list)
+char *get_percent(__attribute__((unused))va_list list, int *char_count)
 {
 	char *buffer;
 
@@ -128,5 +137,6 @@ char *get_percent(__attribute__((unused))va_list list)
 			return (NULL);
 	buffer[0] = '%';
 	buffer[1] = '\0';
+	*char_count = 1;
 	return (buffer);
 }
