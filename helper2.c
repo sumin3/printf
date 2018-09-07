@@ -47,12 +47,12 @@ int write_buff(int *count, int *char_count, char *tmp_buff)
 		{
 			len = len - BUFFER_SIZE;
 			_strncpy(buff, tmp_buff + j, BUFFER_SIZE);
-			*count += write(1, buff, BUFFER_SIZE);
+			*(count) += write(1, buff, BUFFER_SIZE);
 		}
 		else
 		{
 			_strncpy(buff, tmp_buff + j, BUFFER_SIZE);
-			*count += write(1, buff, len);
+			*(count) += write(1, buff, len);
 		}
 	}
 	free(buff);
