@@ -55,7 +55,7 @@ Once the .c files are compiled you can run the program by issuing the command
 ```
 ./<output filename>
 ```
-## Usage Examples
+## Usage Example
 - print a string:
 ```
 #include "holberton.h"
