@@ -45,11 +45,11 @@ After change current working directory to **printf** directory, issue the follow
 
 ##### Run .c file
 Create your own main file before you start. 
-- Not sure what to put in your main file? see [Usage Example](https://github.com/sumin3/printf#Usage-Example)
+- Not sure what to put in your main file (eg: main.c)? see [Usage Example](https://github.com/sumin3/printf#Usage-Example)
 
 
 ```
-gcc -Wall -Werror -Wextra -pedantic <main.c> -o <output filename>
+gcc -Wall -Werror -Wextra -pedantic *.c -o <output filename>
 ```
 Once the .c files are compiled you can run the program by issuing the command
 ```
