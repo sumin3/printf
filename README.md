@@ -31,7 +31,7 @@ Specifier  | Description
 ## Coding style
 - All C files are compiled on Ubuntu 14.04 LTS and using [Betty Style](https://\github.com/holbertonschool/Betty) for checking coding and documentation styles.
 
-## Getting started
+## Installation
 To use, first download  this repository into your local machine by issuing the following command in your local terminal. 
 ```
 git clone https://github.com/sumin3/printf.git
@@ -43,9 +43,10 @@ cd printf
 ```
 After change current working directory to **printf** directory, issue the following command to compile
 
-* Run .c file
+##### Run .c file
 Create your own main file before you start. 
-- Not sure what to put in your main file? see [Usage Example](https://github.com/sumin3/holbertonschool-higher_level_programming/tree/master/0x08-python-more_classes#Usage-Example)
+- Not sure what to put in your main file? see [Usage Example](https://github.com/sumin3/printf#Usage-Example)
+
 
 ```
 gcc -Wall -Werror -Wextra -pedantic <main.c> -o <output filename>
@@ -60,14 +61,18 @@ Once the .c files are compiled you can run the program by issuing the command
 #include "holberton.h"
 _printf("This is an example.");
 ```
+```
 output: This is an example.
+```
+
 - print a string contains format placeholder specifiers:
 ```
 #include "holberton.h"
 _printf("This is an example %d, %c %s.", 3, "a", "cat");
 ```
+```
 output: This is an example 3, a cat.
-
+```
 ## Files
 File | Function | Desc
 ---|---|---
