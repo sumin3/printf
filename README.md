@@ -17,7 +17,7 @@ To create a custom _print function that sends formatted output to stdout by usin
 
 ## Declaration
 Following is the declaration for printf() function.
-`int _printf(const char *format, ...)`
+#### `int _printf(const char *format, ...)`
 - format: A string that contains the text to be written to stdout. It can optionally contains format placeholder specifiers (eg: %s, %d, and %i) that will replaced by the value specified in additional arguments. 
 - Return: return length of the buffer. if error, return -1
 #### Specifiers
